@@ -29,17 +29,16 @@ class BurpExtender(IBurpExtender, IHttpListener, IExtensionStateListener):
         
         # register ourselves as an extension state listener
         callbacks.registerExtensionStateListener(self)
-    
     #
     # implement IHttpListener
     #
 
     def processHttpMessage(self, toolFlag, messageIsRequest, messageInfo):
-    	spice = find_entropy(self.helpers.bytesToString(messageInfo.getResponse()))
+    	spice = None
+    	if not messageIsRequest:
+    		spice = find_entropy(self.helpers.bytesToString(messageInfo.getResponse()))
     	if spice:
-        	self._stdout.println(
-                ("" if messageIsRequest else "Spicy Strings:") +
-                str(spice))
+        	self._stdout.print((str(spice)))
 
 
     #
