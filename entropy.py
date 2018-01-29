@@ -1,5 +1,7 @@
 BASE64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 HEX_CHARS = "1234567890abcdefABCDEF"
+
+import math
 def shannon_entropy(data, iterator):
     """
     Borrowed from http://blog.dkbza.org/2007/05/scanning-data-for-entropy-anomalies.html
@@ -14,6 +16,7 @@ def shannon_entropy(data, iterator):
     return entropy
 
 def find_entropy(text):
+
     stringsFound = []
     lines = text.split("\n")
     for line in lines:
@@ -29,6 +32,7 @@ def find_entropy(text):
                 if hexEntropy > 3:
                     stringsFound.append(string)
     return stringsFound
+
 
 def get_strings_of_set(word, char_set, threshold=20):
     count = 0
