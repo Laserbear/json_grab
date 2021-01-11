@@ -8,4 +8,3 @@ This tool should be able to read page source as you crawl a website and extract 
 
 -incorporate https://github.com/jobertabma/relative-url-extractor (maybe port to Python)
 
--Fake accounts that talk to each other with PII that you know in advance will make processing very fast
